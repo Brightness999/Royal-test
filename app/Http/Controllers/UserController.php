@@ -58,6 +58,7 @@ class UserController extends Controller
                 Session::put('user_email', $response->user->email);
                 Session::put('user_first_name', $response->user->first_name);
                 Session::put('user_last_name', $response->user->last_name);
+                Session::put('user_gender', $response->user->gender);
 
                 return redirect('dashboard');
             }
@@ -82,6 +83,25 @@ class UserController extends Controller
         else{
             if(Session()->has('refresh_token_key') && $this->refreshToken()){
                 return view('dashboard');
+            }
+            else{
+                return redirect('/');
+            }
+        }
+    }
+
+    public function profile(){
+        if(Cookie::has('token_key') && Cookie::get('token_key') != ''){
+            if(Session()->has('token_key')){
+                return view('profile');
+            }
+            else{
+                return redirect('/');
+            }
+        }
+        else{
+            if(Session()->has('refresh_token_key') && $this->refreshToken()){
+                return view('profile');
             }
             else{
                 return redirect('/');

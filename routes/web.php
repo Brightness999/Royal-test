@@ -24,6 +24,8 @@ Route::get('/logout', [UserController::class, 'logout']);
 
 Route::get('/dashboard', [UserController::class, 'dashboard']);
 
+Route::get('/profile', [UserController::class, 'profile']);
+
 Route::get('/authors', [AuthorController::class, 'index']);
 
 Route::get('/view_author/{id}', [AuthorController::class, 'view_author'])->where('id', '[0-9]+');
