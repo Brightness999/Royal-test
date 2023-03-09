@@ -22,7 +22,7 @@
     </label>    
     <input type="Password" name="password" id="password" placeholder="Password">    
     <br><br>    
-    <input type="submit" name="log" id="log" value="Log In Here">
+    <input type="submit" name="log" id="log" value="Login">
 </form>  
 
 @endsection
